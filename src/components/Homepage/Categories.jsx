@@ -23,7 +23,7 @@ const categories = [
   {
     name: 'SEATING',
     projectCount: 200,
-    imageSrc: '/placeholder.svg?height=400&width=600',
+    imageSrc: '/chairs.png',
     hoverColor: 'bg-yellow-500',
   },
   {
@@ -64,11 +64,17 @@ function CategoryCard({ category, className }) {
       to={`/category/${category.name.toLowerCase()}`}
       className={`block relative overflow-hidden ${className} group`}
     >
-      <img
-        src={category.imageSrc}
-        alt={category.name}
-        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      />
+      <div className="absolute inset-0 bg-gray-200">
+        <img
+          src={category.imageSrc}
+          alt={category.name}
+          className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
+            category.name === 'SEATING' 
+              ? 'object-contain object-right-bottom'
+              : 'object-cover'
+          }`}
+        />
+      </div>
       <div className="absolute inset-0 bg-gray-200 bg-opacity-80 transition-opacity duration-300 group-hover:bg-opacity-0" />
       <div className={`absolute inset-0 ${category.hoverColor} opacity-0 transition-opacity duration-300 group-hover:opacity-80`} />
       <div className="absolute bottom-0 left-0 p-8 w-full">

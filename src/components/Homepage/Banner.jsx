@@ -7,19 +7,19 @@ const Banner = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const slides = [
-    { id: 1, image: '/image.png', title: 'KRADLE', subtitle: 'Your new project' },
-    { id: 2, image: '/image-2.jpg', title: 'Slide 2', subtitle: 'Description 2' },
-    { id: 3, image: '/image-3.jpg', title: 'Slide 3', subtitle: 'Description 3' },
+    { id: 1, image: '/image.png', title: 'KRADLE', subtitle: '2023' },
+    { id: 2, image: '/image-2.jpg', title: 'Slide 2', subtitle: '2023' },
+    { id: 3, image: '/image-3.jpg', title: 'Slide 3', subtitle: '2023' },
   ];
 
   const goToNextSlide = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setIsHovering(true); // Keep the preview expanded during transition
+      setIsHovering(true);
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
       setTimeout(() => {
         setIsTransitioning(false);
-        setIsHovering(false); // Reset hover state after transition
+        setIsHovering(false);
       }, 1000);
     }
   };
@@ -50,8 +50,14 @@ const Banner = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className={`pl-[10%] pr-[15%] pb-16 ${isHovering || isTransitioning ? '-translate-x-16' : ''} transition-transform duration-500`}>
-              <h2 className="text-white text-6xl font-bold mb-2">{slides[currentSlide].title}</h2>
-              <p className="text-white text-2xl">{slides[currentSlide].subtitle}</p>
+              <p className="text-white text-xl mb-2">{slides[currentSlide].subtitle}</p>
+              <h2 className="text-white text-7xl font-bold mb-4">{slides[currentSlide].title}</h2>
+              <div className="flex items-center">
+                <span className="text-white text-lg mr-2">see project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -75,8 +81,8 @@ const Banner = () => {
           animate={{ opacity: isHovering || isTransitioning ? 1 : 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-white text-xl font-bold mb-1">{slides[nextSlideIndex].title}</h3>
-          <p className="text-white text-sm">{slides[nextSlideIndex].subtitle}</p>
+          <p className="text-white text-sm mb-1">{slides[nextSlideIndex].subtitle}</p>
+          <h3 className="text-white text-xl font-bold">{slides[nextSlideIndex].title}</h3>
         </motion.div>
       </motion.div>
     </div>
