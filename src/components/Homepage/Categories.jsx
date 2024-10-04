@@ -81,7 +81,7 @@ function CategoryCard({ category, className }) {
         <p className="text-xl font-medium mb-2 group-hover:opacity-0 transition-opacity duration-300">
           {category.projectCount} PROJECTS
         </p>
-        <h2 className="text-6xl font-bold mb-4 transition-colors duration-300 group-hover:text-white">
+        <h2 className="text-6xl font-extrabold mb-4 transition-colors duration-300 group-hover:text-white">
           {category.name}
         </h2>
         <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

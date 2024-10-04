@@ -33,7 +33,7 @@ export default function Header() {
                 className={`transition-all duration-300 ${scrolled ? 'h-10' : 'h-16'}`}
               />
               <img
-                src="/logo-text.webp"
+                src="/logo-text.png"
                 alt="Curve Hospitality Text"
                 className={`transition-all duration-300 ${scrolled ? 'h-8' : 'h-12'}`}
               />
